@@ -54,6 +54,7 @@ export class AuthService {
   checkAuth(): void {
     console.log("checkAuth");
     const token = localStorage.getItem('token');
+    console.log("token:", token);
     if(token) {
       this.loggedIn.next(true);
       this.dataService.authStatus().subscribe({
