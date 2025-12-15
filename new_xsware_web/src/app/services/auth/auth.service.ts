@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, throwError } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { PlatformService } from '@core/platform';
 import { ApiService } from '@services/api.service';
 import { UserSessionService } from '@services/session/userSession.service';
 
@@ -12,12 +13,14 @@ export class AuthService {
   constructor(
     private dataService: ApiService, 
     public toastr: ToastrService,
-    private userSession: UserSessionService
+    private userSession: UserSessionService,
+    private platform: PlatformService
   ) {}
 
   isLoggedIn$ = this.loggedIn.asObservable();
 
   isLoggedIn(): boolean {
+    if (!this.platform.isBrowser) return false;
     return !!localStorage.getItem('token');
   }
 

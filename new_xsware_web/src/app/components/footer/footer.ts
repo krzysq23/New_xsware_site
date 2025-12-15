@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SharedImports } from '@app/shared/imports';
+import { AuthService } from '@services/auth/auth.service';
 
 @Component({
     selector: 'app-footer',
@@ -12,8 +13,13 @@ import { SharedImports } from '@app/shared/imports';
 })
 export class Footer implements OnInit {
     test : Date = new Date();
+    public isLoggedIn = false;
 
-    constructor(private router: Router ) {}
+    constructor(private router: Router, private authService: AuthService) {
+      this.authService.isLoggedIn$.subscribe(status => {
+            this.isLoggedIn = status;
+        });
+    }
 
     ngOnInit() {
 

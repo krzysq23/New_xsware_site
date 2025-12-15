@@ -6,7 +6,12 @@ import {
   NgbDropdownToggle,
   NgbDropdownMenu,
   NgbDropdownItem,
-  NgbTooltip
+  NgbTooltip,
+  NgbNav,
+  NgbNavItem,
+  NgbNavLink,
+  NgbNavContent,
+  NgbNavOutlet
 } from '@ng-bootstrap/ng-bootstrap';
 
 export const SharedImports = [
@@ -25,5 +30,10 @@ export const SharedImports = [
   NgbDropdownMenu,
   NgbDropdownItem,
   NgbTooltip,
+  NgbNav,
+  NgbNavItem,
+  NgbNavLink,
+  NgbNavContent,
+  NgbNavOutlet
   
 ] as const;
